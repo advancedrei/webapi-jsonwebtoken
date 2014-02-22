@@ -2,9 +2,9 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>WebApi.JsonWebToken</id>
-        <version>0.1.1</version>
+        <version>1.0.0</version>
         <title>JsonWebToken DelegatingHandler for WebAPI</title>
-        <authors>Matias Woloski</authors>
+        <authors>Matias Woloski, AdvancedREI</authors>
         <owners>auth0</owners>
         <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
         <projectUrl>http://auth0.com</projectUrl>

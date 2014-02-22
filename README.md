@@ -9,10 +9,10 @@ JsonWebToken DelegatingHandler for ASP.NET WebAPI.
 Add the following to your App_Start\WebApiConfig.cs file under the Register method:
 
 ~~~csharp
-config.MessageHandlers.Add(new WebApi.App_Start.JsonWebTokenValidationHandler
+config.MessageHandlers.Add(new JsonWebTokenValidationHandler
 {
-    Audience = "..your-client-id..",
-    SymmetricKey = "....your-client-secret...."
+    ClientId = "YOUR_CLIENT_ID",
+    ClientSecret = "YOUR_CLIENT_SECRET"
 });
 ~~~
 
