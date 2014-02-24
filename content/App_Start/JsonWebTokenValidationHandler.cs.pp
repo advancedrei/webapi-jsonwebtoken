@@ -19,16 +19,16 @@ namespace $rootnamespace$
         #region Properties
 
         /// <summary>
-        /// The ClientId from your Auth0 account.
+        /// The Audience to use for encrypting the token.
         /// </summary>
-        /// <remarks>Other authentication providers might refer to this as the Audience.</remarks>
-        public string ClientId { get; set; }
+        /// <remarks>For Auth0 users, use the ClientId value from your account.</remarks>
+        public string Audience { get; set; }
 
         /// <summary>
-        /// The ClientSecret from your Auth0 account.
+        /// The SymmetricKey to use for encrypting the token.
         /// </summary>
-        /// <remarks>Other authentication providers might refer to this as the SymmetricKey.</remarks>
-        public string ClientSecret { get; set; }
+        /// <remarks>For Auth0 users, use the ClientSecret value from your account.</remarks>
+        public string SymmetricKey { get; set; }
 
         /// <summary>
         /// Identifies the principal that issued the JWT.
@@ -54,9 +54,9 @@ namespace $rootnamespace$
             {
                 try
                 {
-                    var secret = ClientSecret.Replace('-', '+').Replace('_', '/');
+                    var secret = SymmetricKey.Replace('-', '+').Replace('_', '/');
 
-                    Thread.CurrentPrincipal = JsonWebToken.ValidateToken(token, secret, ClientId, true, Issuer);
+                    Thread.CurrentPrincipal = JsonWebToken.ValidateToken(token, secret, Audience, true, Issuer);
                     
                     if (HttpContext.Current != null)
                     {
