@@ -55,13 +55,7 @@ namespace $rootnamespace$
                 try
                 {
                     var secret = SymmetricKey.Replace('-', '+').Replace('_', '/');
-
-                    Thread.CurrentPrincipal = JsonWebToken.ValidateToken(token, secret, Audience, true, Issuer);
-                    
-                    if (HttpContext.Current != null)
-                    {
-                        HttpContext.Current.User = Thread.CurrentPrincipal;
-                    }
+                    JsonWebToken.ValidateToken(token, secret, Audience, true, Issuer);
                 }
                 catch (JWT.SignatureVerificationException ex)
                 {
